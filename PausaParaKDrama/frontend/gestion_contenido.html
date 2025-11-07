@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Contenido</title>
+    <link rel="stylesheet" href="./css/general.css">
+    <link rel="stylesheet" href="./css/admin.css">
+</head>
+<body>
+    <header>
+        <p class="posNombreWeb">Pausa Para K-Dramas - Admin</p>
+        <nav class="posBtnLoginRegistro">
+            <ul>
+                <li><a href="admin.html">Inicio Admin</a></li>
+                <li><a href="gestion_usuarios.html">Gestión de Usuarios</a></li>
+                <li><a href="index.html">Salir</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Gestión de Contenido</h1>
+
+        <form id="formContenido">
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" name="titulo" placeholder="Título del K-Drama" required>
+
+            <label for="descripcion">Descripción:</label>
+            <textarea id="descripcion" name="descripcion" placeholder="Descripción o reseña..." rows="5" required></textarea>
+
+            <button type="submit">Guardar</button>
+        </form>
+
+        <section class="lista-contenido">
+            <h2>Publicaciones Existentes</h2>
+            <article class="card">
+                <h3>Crash Landing On You</h3>
+                <p>Una historia de amor entre Corea del Norte y del Sur...</p>
+                <div class="acciones">
+                    <button class="editar">Editar</button>
+                    <button class="eliminar">Eliminar</button>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Pausa Para K-Dramas. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

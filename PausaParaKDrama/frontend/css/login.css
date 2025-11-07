@@ -1,0 +1,26 @@
+/* ========== ESTILOS LOGIN ========== */
+
+/* Fondo con overlay */
+main {
+    position: relative;
+    background: url("../assets/img/Login_img/fondo_login.jpg") center/cover no-repeat;
+    padding: 50px 20px;
+}
+
+main::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+main * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Ajustes específicos del login */
+h1 {
+    color: #fff;
+}

@@ -1,0 +1,331 @@
+/* ========== ESTILOS PANEL USUARIO ========== */
+
+main {
+    padding: 60px 20px;
+    min-height: calc(100vh - 140px);
+    background: #fdfdfd;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.4rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+}
+
+/* Dashboard de usuario */
+.dashboard {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    width: 280px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card h2, .card h3 {
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.card p {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.card .btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #e63946;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.card .btn:hover {
+    background: #c72f3a;
+}
+
+/* Perfil de usuario */
+.perfil-usuario {
+    background: #fff;
+    padding: 30px;
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.foto-perfil {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+.perfil-usuario h2 {
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.perfil-usuario button {
+    background: #1d3557;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.perfil-usuario button:hover {
+    background: #457b9d;
+}
+
+/* Lista de favoritos */
+.lista-favoritos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.lista-favoritos .card {
+    width: 250px;
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.lista-favoritos img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.lista-favoritos h3 {
+    margin: 15px 0 5px;
+}
+
+.lista-favoritos p {
+    padding: 0 10px 15px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .dashboard, .lista-favoritos {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+    }
+
+    .perfil-usuario {
+        width: 90%;
+    }
+}
+
+/* NUEVO DISEÑO PERFIL MODERNO K-DRAMA */
+
+
+.perfil-container {
+    min-height: calc(100vh - 140px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+    background-attachment: fixed;
+    padding: 40px 20px;
+}
+
+/* Tarjeta principal del perfil */
+.perfil-card {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    border-radius: 25px;
+    padding: 40px 35px;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 8px 25px rgba(233, 30, 99, 0.2);
+    text-align: center;
+    color: #333;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Cabecera del perfil */
+.perfil-header img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #e91e63;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.perfil-header img:hover {
+    transform: scale(1.05);
+}
+
+.perfil-header h2 {
+    font-size: 1.8rem;
+    color: #e91e63;
+    margin-bottom: 5px;
+}
+
+.perfil-header p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Cuerpo del perfil */
+.perfil-body {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.perfil-body p {
+    font-size: 1rem;
+    color: #444;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.perfil-body i {
+    color: #e91e63;
+}
+
+/* Acciones */
+.perfil-actions {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.btn-editar {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #e91e63;
+    color: white;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-editar:hover {
+    background: #d81b60;
+    transform: scale(1.05);
+}
+
+/* Responsivo nuevo diseño */
+@media (max-width: 600px) {
+    .perfil-card {
+        padding: 25px;
+    }
+
+    .perfil-header h2 {
+        font-size: 1.5rem;
+    }
+}
+
+
+
+/* ========== FORMULARIO EDITAR PERFIL ========== */
+
+.perfil-card form {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.campo {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.campo label {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.campo input,
+.campo textarea {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s ease;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+  border: 1px solid #e91e63;
+}
+
+button[type="submit"] {
+  background: #e91e63;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%;
+}
+
+button[type="submit"]:hover {
+  background: #c2185b;
+}
+
+.error {
+  font-size: 0.9rem;
+  color: #e91e63;
+  margin-top: 4px;
+}
+
+@media (max-width: 600px) {
+  .perfil-card {
+    width: 95%;
+  }
+}

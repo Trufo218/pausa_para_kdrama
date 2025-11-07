@@ -1,0 +1,82 @@
+/* ========== ESTILOS DE LA PÁGINA DE INICIO ========== */
+
+/* Asegura que padding y bordes no rompan el layout */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Fondo principal con imagen y overlay */
+main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    background: url("../assets/img/Inicio_img/fondo_web.jpg") no-repeat center center / cover;
+    
+}
+
+main::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 1;
+}
+
+/* Asegura que el contenido esté sobre el overlay */
+main * {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+/* Título principal */
+h1 {
+    color: #fff;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    
+}
+
+/* Párrafo de bienvenida */
+.mensajeBienvenida {
+    color: #fff;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    padding: 0 10px; 
+    word-wrap: break-word;
+}
+
+/* Imagen principal */
+main img {
+    width: 100%;        
+    max-width: 800px;   
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+  
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.3rem;
+    }
+
+    .mensajeBienvenida {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    main img {
+        max-width: 100%;
+    }
+}

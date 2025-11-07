@@ -1,0 +1,268 @@
+/* ========== ESTILOS PANEL ADMINISTRADOR ========== */
+
+/* General */
+main {
+    padding: 60px 20px;
+    text-align: center;
+    min-height: calc(100vh - 140px);
+    background-color: #f8f9fa;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+p {
+    color: #555;
+}
+
+/* Dashboard (tarjetas) */
+.dashboard {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    width: 280px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card h2 {
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.card p {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.card .btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #e63946;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.card .btn:hover {
+    background: #c72f3a;
+}
+
+/* Tabla de usuarios */
+.tabla-usuarios {
+    width: 90%;
+    max-width: 900px;
+    margin: 40px auto;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tabla-usuarios th,
+.tabla-usuarios td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.tabla-usuarios th {
+    background: #e63946;
+    color: #fff;
+    font-weight: 600;
+}
+
+.tabla-usuarios tr:hover {
+    background: #f3f3f3;
+}
+
+.editar,
+.eliminar {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #fff;
+    transition: background 0.2s ease;
+}
+
+.editar {
+    background: #1d3557;
+}
+
+.eliminar {
+    background: #e63946;
+}
+
+.editar:hover {
+    background: #457b9d;
+}
+
+.eliminar:hover {
+    background: #c72f3a;
+}
+
+/* Formulario de contenido */
+#formContenido {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#formContenido input,
+#formContenido textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+#formContenido button {
+    background: #1d3557;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+#formContenido button:hover {
+    background: #457b9d;
+}
+
+/* Lista de contenido */
+.lista-contenido {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.lista-contenido .card {
+    text-align: left;
+}
+
+.lista-contenido .acciones {
+    margin-top: 10px;
+}
+/* Contenedor principal */
+
+
+
+button.eliminar {
+background-color: #f44336;
+color: white;
+}
+
+
+button.eliminar:hover {
+background-color: #c62828;
+}
+
+
+/* Modal */
+.modal {
+display: none;
+position: fixed;
+inset: 0;
+background: rgba(0, 0, 0, 0.55);
+justify-content: center;
+align-items: center;
+z-index: 9999;
+}
+
+
+.modal-contenido {
+background: white;
+padding: 25px;
+border-radius: 12px;
+width: 95%;
+max-width: 420px;
+box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+animation: fadeIn 0.3s ease;
+}
+
+
+@keyframes fadeIn {
+from { opacity: 0; transform: scale(0.9); }
+to { opacity: 1; transform: scale(1); }
+}
+
+
+.modal input,
+.modal select {
+width: 100%;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 8px;
+margin-bottom: 12px;
+}
+
+
+.modal-botones {
+display: flex;
+justify-content: flex-end;
+gap: 12px;
+}
+
+
+.modal-botones button {
+padding: 10px 16px;
+border-radius: 8px;
+font-weight: bold;
+border: none;
+cursor: pointer;
+}
+
+
+.btn-cancelar {
+background-color: #888;
+color: white;
+}
+
+
+.btn-guardar {
+background-color: #4caf50;
+color: white;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+#tabla-usuarios th,
+#tabla-usuarios td {
+padding: 10px;
+}
+
+
+h1 {
+font-size: 1.8rem;
+}
+}

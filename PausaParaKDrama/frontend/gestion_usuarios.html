@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gestión de Usuarios - Admin</title>
+
+
+  <link rel="stylesheet" href="./css/general.css">
+  
+  <style>
+    
+    main { padding: 40px 20px; text-align: center; min-height: calc(100vh - 160px); background:#f8f9fa; }
+    .btn-primario { background:#e91e63; color:#fff; border:none; padding:10px 14px; border-radius:8px; cursor:pointer; }
+    .tabla-usuarios { width:90%; max-width:1100px; margin: 20px auto; border-collapse:collapse; background:#fff; box-shadow:0 6px 20px rgba(0,0,0,0.06); border-radius:10px; overflow:hidden; }
+    .tabla-usuarios th { background:#e91e63; color:#fff; padding:12px 16px; text-align:left; }
+    .tabla-usuarios td { padding:12px 16px; border-bottom:1px solid #eee; }
+    .acciones button { margin-right:8px; padding:7px 10px; border-radius:6px; border:none; cursor:pointer; color:#fff; }
+    .editar { background:#1d3557; } .eliminar { background:#e63946; }
+   
+    .modal { display:none; position:fixed; inset:0; background: rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:9999; }
+    .modal .contenido { background:#fff; padding:18px; border-radius:10px; width:95%; max-width:480px; box-shadow:0 8px 30px rgba(0,0,0,0.2); }
+    .modal label { display:block; margin-top:8px; font-weight:600; color:#333; }
+    .modal input, .modal select { width:100%; padding:10px; margin-top:6px; border:1px solid #ddd; border-radius:8px; }
+    .modal .botones { margin-top:14px; display:flex; gap:10px; justify-content:flex-end; }
+    .btn-secundario { background:#6c757d; color:#fff; border:none; padding:10px 14px; border-radius:8px; cursor:pointer; }
+    .small-muted { font-size:0.9rem; color:#666; margin-top:6px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <p class="posNombreWeb">Pausa Para K-Dramas - Admin</p>
+  <nav class="posBtnLoginRegistro">
+    <ul>
+      <li><a href="admin.html">Inicio Admin</a></li>
+      <li><a href="gestion_contenido.html">Gestión de Contenido</a></li>
+      <li><a href="index.html">Salir</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h1>Gestión de Usuarios</h1>
+
+  <!-- botón crear -->
+  <div style="margin:18px 0;">
+    <button id="btnAbrirCrear" class="btn-primario">➕ Crear usuario</button>
+  </div>
+
+  <!-- tabla -->
+  <table class="tabla-usuarios" id="tablaUsuarios">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>UID Firebase</th>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Roles</th>
+        <th>Fecha registro</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</main>
+
+<!-- Modal Crear / Editar -->
+<div id="modal" class="modal" aria-hidden="true">
+  <div class="contenido" role="dialog" aria-modal="true">
+    <h2 id="modalTitle">Crear usuario</h2>
+
+    <form id="formUsuario">
+      <!-- hidden: local DB id (cuando editamos) -->
+      <input type="hidden" id="localId">
+
+      <label for="firebaseUid">UID Firebase (solo para edición)</label>
+      <input id="firebaseUid" type="text" placeholder="(autogenerado al crear en Firebase)" readonly>
+
+      <label for="nombre">Nombre</label>
+      <input id="nombre" type="text" required>
+
+      <label for="email">Email</label>
+      <input id="email" type="email" required>
+
+      <div id="crearPasswordGroup">
+        <label for="password">Contraseña (para Firebase)</label>
+        <input id="password" type="password" placeholder="min. 6 caracteres" >
+        <div class="small-muted">La contraseña se usa solo al crear el usuario en Firebase.</div>
+      </div>
+
+      <label for="foto">Foto (URL)</label>
+      <input id="foto" type="text" placeholder="https://...">
+
+      <label for="roles">Rol</label>
+      <select id="roles">
+        <option value="USER">USER</option>
+        <option value="ADMIN">ADMIN</option>
+      </select>
+
+      <div class="botones">
+        <button type="button" id="btnCancelar" class="btn-secundario">Cancelar</button>
+        <button type="submit" id="btnGuardar" class="btn-primario">Guardar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2025 Pausa Para K-Dramas. Todos los derechos reservados.</p>
+</footer>
+
+<!-- Firebase (Web SDK v9 compat via namespace) -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+
+<!-- Inicializa Firebase: crea un archivo firebase-config.js o sustituye config aquí -->
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyC3mYaJLSEOU6yU3CZBa6uAUUMZrByt224",
+    authDomain: "pausaparakdrama.firebaseapp.com",
+    projectId: "pausaparakdrama",
+    storageBucket: "pausaparakdrama.firebasestorage.app",
+    messagingSenderId: "1041723137654",
+    appId: "1:1041723137654:web:7b3fac057cb3cf2a6e0957",
+    measurementId: "G-D83GTPWEM3"
+    };
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+
+<script src="./js/admin-panel.js"></script>
+</body>
+</html>

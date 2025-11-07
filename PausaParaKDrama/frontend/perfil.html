@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Perfil | Pausa Para K-Dramas</title>
+  <link rel="stylesheet" href="./css/general.css">
+  <link rel="stylesheet" href="./css/usuario.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <header>
+    <p class="posNombreWeb">Pausa Para K-Dramas</p>
+    <nav class="posBtnLoginRegistro">
+      <ul>
+        <li><a href="usuario.html">Inicio</a></li>
+        <li><a href="favoritos.html">Mis Favoritos</a></li>
+        <li><a href="index.html">Salir</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="perfil-container">
+    <div class="perfil-card">
+      <div class="perfil-header">
+        <img id="fotoUsuario" src="./assets/img/avatar_usuario/usuario_default.jpg" alt="Foto de perfil" class="foto-perfil">
+        <h2 id="nombreUsuario">Cargando...</h2>
+        <p id="correoUsuario" class="correo"></p>
+      </div>
+
+      <div class="perfil-body">
+        <p><i class="fa-solid fa-heart"></i> <strong>Favoritos:</strong> <span id="numFavoritos">0</span> dramas</p>
+        <p><i class="fa-solid fa-calendar"></i> <strong>Miembro desde:</strong> <span id="fechaRegistro">-</span></p>
+        <p><i class="fa-solid fa-quote-left"></i> 
+          <span id="bioUsuario">“Aún no tienes una frase guardada.”</span>
+        </p>
+      </div>
+
+      <div class="perfil-actions">
+        <a href="editarUsuario.html" class="btn-editar"><i class="fa-solid fa-user-pen"></i> Editar Perfil</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Pausa Para K-Dramas. Todos los derechos reservados.</p>
+  </footer>
+
+ 
+  <script type="module" src="./js/perfil.js"></script>
+</body>
+</html>
