@@ -1,26 +1,17 @@
-/* ========== ESTILOS LOGIN ========== */
-
-/* Fondo con overlay */
 main {
-    position: relative;
-    background: url("../assets/img/Login_img/fondo_login.jpg") center/cover no-repeat;
-    padding: 50px 20px;
+  max-width: 420px;
+  text-align: center;
+  margin-top: 50px;
 }
 
-main::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1;
+main h1 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #222;
 }
 
-main * {
-    position: relative;
-    z-index: 2;
-}
-
-/* Ajustes específicos del login */
-h1 {
-    color: #fff;
+#mensaje {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #d93535;
 }

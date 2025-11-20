@@ -1,26 +1,15 @@
-/* ========== ESTILOS REGISTRO ========== */
-
-/* Fondo con overlay */
 main {
-    position: relative;
-    background: url("../assets/img/Registro_img/Collage_KDRAMA.jpeg") center/cover no-repeat;
-    padding: 50px 20px;
+  max-width: 440px;
+  text-align: center;
+  margin-top: 50px;
 }
 
-main::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1;
+main h1 {
+  font-size: 1.9rem;
+  margin-bottom: 15px;
 }
 
-main * {
-    position: relative;
-    z-index: 2;
-}
-
-/* Ajustes específicos del registro */
-h1 {
-    color: #fff;
+#mensaje {
+  margin-top: 10px;
+  color: #d93535;
 }

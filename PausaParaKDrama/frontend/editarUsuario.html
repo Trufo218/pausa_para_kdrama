@@ -1,55 +1,78 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Editar Perfil | Pausa Para K-Dramas</title>
-  <link rel="stylesheet" href="./css/general.css"/>
-  <link rel="stylesheet" href="./css/usuario.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editar Perfil | Pausa Para K-Dramas</title>
+    <link rel="stylesheet" href="./css/general.css" />
+    <link rel="stylesheet" href="./css/usuario.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <p class="posNombreWeb">Pausa Para K-Dramas</p>
+      <nav class="posBtnLoginRegistro">
+        <ul>
+          <li><a href="usuario.html">Perfil</a></li>
+          <li><a href="favoritos.html">Mis Favoritos</a></li>
+          <li><a href="index.html">Salir</a></li>
+        </ul>
+      </nav>
+    </header>
 
-<header>
-  <p class="posNombreWeb">Pausa Para K-Dramas</p>
-  <nav class="posBtnLoginRegistro">
-    <ul>
-      <li><a href="usuario.html">Perfil</a></li>
-      <li><a href="favoritos.html">Mis Favoritos</a></li>
-      <li><a href="index.html">Salir</a></li>
-    </ul>
-  </nav>
-</header>
+    <main class="perfil-container">
+      <div class="perfil-card">
+        <h2><i class="fa-solid fa-user-pen"></i> Editar Perfil</h2>
+        <p>Actualiza tu información personal</p>
 
-<main class="perfil-container">
-  <div class="perfil-card">
-    <h2><i class="fa-solid fa-user-pen"></i> Editar Perfil</h2>
-    <p>Actualiza tu información personal</p>
+        <form
+          id="formEditarPerfil"
+          enctype="multipart/form-data"
+          novalidate
+        >
+          <div class="campo">
+            <label for="nombre">Nombre Completo</label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              placeholder="Tu nombre completo"
+              required
+            />
+            <span class="error" id="error-nombre"></span>
+          </div>
 
-    <form id="formEditarPerfil" enctype="multipart/form-data" novalidate>
-      <div class="campo">
-        <label for="nombre">Nombre Completo</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
-        <span class="error" id="error-nombre"></span>
+          <div class="campo">
+            <label for="foto">Foto de Perfil</label>
+            <input
+              type="file"
+              id="foto"
+              name="foto"
+              accept="image/*"
+            />
+            <img
+              id="preview"
+              src="./assets/img/avatar_usuario/usuario_default.jpg"
+              alt="Vista previa"
+              class="foto-perfil"
+              style="margin-top: 10px"
+            />
+            <span class="error" id="error-foto"></span>
+          </div>
+
+          <button type="submit" id="btnGuardar">Guardar Cambios</button>
+          <p id="mensaje" style="margin-top: 10px; font-weight: bold"></p>
+        </form>
       </div>
+    </main>
 
-      <div class="campo">
-        <label for="foto">Foto de Perfil</label>
-        <input type="file" id="foto" name="foto" accept="image/*"/>
-        <img id="preview" src="./assets/img/avatar_usuario/usuario_default.jpg" alt="Vista previa" class="foto-perfil" style="margin-top:10px;">
-        <span class="error" id="error-foto"></span>
-      </div>
+    <footer>
+      <p>&copy; 2025 Pausa Para K-Dramas. Todos los derechos reservados.</p>
+    </footer>
 
-      <button type="submit" id="btnGuardar">Guardar Cambios</button>
-      <p id="mensaje" style="margin-top:10px; font-weight:bold;"></p>
-    </form>
-  </div>
-</main>
-
-<footer>
-  <p>&copy; 2025 Pausa Para K-Dramas. Todos los derechos reservados.</p>
-</footer>
-
-<script type="module" src="./js/editarUsuario.js"></script>
-</body>
+    <script type="module" src="./js/editarUsuario.js"></script>
+  </body>
 </html>
