@@ -181,6 +181,16 @@ footer {
 }
 
 
+/* Subrayado sutil */
+main h1::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background: #e6466c;
+  display: block;
+  border-radius: 10px;
+  margin-top: 6px;
+}
 
 @media (max-width: 768px) {
 

@@ -14,16 +14,6 @@ main h1 {
   letter-spacing: -1px;
 }
 
-/* Subrayado sutil */
-main h1::after {
-  content: "";
-  width: 70px;
-  height: 4px;
-  background: #e6466c;
-  display: block;
-  border-radius: 10px;
-  margin-top: 6px;
-}
 
 /* Párrafo de bienvenida */
 .mensajeBienvenida {

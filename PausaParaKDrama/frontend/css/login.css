@@ -8,6 +8,7 @@ main h1 {
   font-size: 1.8rem;
   margin-bottom: 15px;
   color: #222;
+  text-align: left;
 }
 
 #mensaje {
