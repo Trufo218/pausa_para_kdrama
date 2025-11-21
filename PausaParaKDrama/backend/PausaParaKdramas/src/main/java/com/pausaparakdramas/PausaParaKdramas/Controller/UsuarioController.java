@@ -21,9 +21,9 @@ public class UsuarioController {
     @Autowired
     private FirebaseAdminService firebaseAdminService;
 
-    // =======================
+
     // PERFIL DEL USUARIO
-    // =======================
+
 
     @GetMapping("/me")
     public Usuario obtenerPerfil(HttpServletRequest request) {
@@ -49,9 +49,9 @@ public class UsuarioController {
         return usuarioService.actualizarPerfil(uid, cambios);
     }
 
-    // =======================
+
     // ADMIN: CRUD LOCAL
-    // =======================
+
 
     @GetMapping
     public List<Usuario> listarUsuarios(HttpServletRequest request) {
@@ -84,9 +84,9 @@ public class UsuarioController {
         usuarioService.eliminarUsuario(id);
     }
 
-    // =======================
+
     // ADMIN: CRUD FIREBASE
-    // =======================
+
 
     @GetMapping("/firebase")
     public List<UserRecord> listarUsuariosFirebase(HttpServletRequest request) throws Exception {

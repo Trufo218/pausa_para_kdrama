@@ -1,7 +1,5 @@
 package com.pausaparakdramas.PausaParaKdramas.Config_firebase;
 
-
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseToken;
 import jakarta.servlet.FilterChain;
@@ -19,6 +17,15 @@ import java.io.IOException;
 @Component
 public class FirebaseAuthFilter extends OncePerRequestFilter {
 
+    //  Nuevo método: este filtro NO se ejecuta para /api/kdramas/**
+    @Override
+    protected boolean shouldNotFilter(HttpServletRequest request) {
+        String path = request.getServletPath();
+        System.out.println("🔥 AuthFilter IGNORADO → " + path);
+
+        return path.startsWith("/api/kdramas");  // ← Ignorar estas rutas
+    }
+
     @Override
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
@@ -31,7 +38,6 @@ public class FirebaseAuthFilter extends OncePerRequestFilter {
             String idToken = authHeader.substring(7);
             try {
                 FirebaseToken decodedToken = FirebaseAuth.getInstance().verifyIdToken(idToken);
-                // Guardamos UID en la request para usar en el controller
                 request.setAttribute("uidFirebase", decodedToken.getUid());
             } catch (Exception e) {
                 response.setStatus(HttpServletResponse.SC_FORBIDDEN);

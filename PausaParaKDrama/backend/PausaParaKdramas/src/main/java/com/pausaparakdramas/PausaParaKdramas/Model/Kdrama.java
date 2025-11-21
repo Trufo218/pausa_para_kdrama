@@ -4,11 +4,9 @@ import com.pausaparakdramas.PausaParaKdramas.Model.Enum.KdramaGenero;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -18,22 +16,22 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "K-Dramas")
+@Table(name = "kdramas")
 @Schema(description = "Representa un K-drama del sistema")
-
 public class Kdrama {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_Kdrama")
+    @Column(name = "id_kdrama")
     private Long idKdrama;
 
     @NotBlank
-    @Column(name = "titulo_K-drama",nullable = false)
+    @Column(name = "titulo_kdrama", nullable = false)
     private String tituloKdrama;
 
-    @NotNull
-    @Column(name = "año")
-    private LocalDate anio;
+    // SOLO AÑO (int)
+    @Column(name = "anio")
+    private Integer anio;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "genero")
@@ -44,24 +42,21 @@ public class Kdrama {
 
     @Column(name = "sinopsis", columnDefinition = "TEXT")
     private String sinopsis;
+
     @Column(name = "imagen_url")
     private String imagenUrl;
 
     @Column(name = "fecha_registro", updatable = false)
     private LocalDate fechaRegistro;
 
-    //Relaciones entre entidades.
-
+    // Relaciones
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "usuario_id", nullable = false)
+    @JoinColumn(name = "usuario_id", nullable = true)
     private Usuario usuario;
 
-
-    @OneToMany(mappedBy="kdrama",cascade= CascadeType.ALL)
+    @OneToMany(mappedBy="kdrama", cascade = CascadeType.ALL)
     private List<Comentario> comentarios = new ArrayList<>();
 
-
-    @OneToMany(mappedBy = "kdrama",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "kdrama", cascade = CascadeType.ALL)
     private List<Valoracion> valoraciones = new ArrayList<>();
-
 }

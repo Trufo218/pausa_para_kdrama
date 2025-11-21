@@ -21,9 +21,9 @@ public class UsuarioService {
         this.usuarioRepository = usuarioRepository;
     }
 
-    // =======================
+
     // MÉTODOS BÁSICOS
-    // =======================
+
 
     public List<Usuario> listarUsuarios() {
         return usuarioRepository.findAll();
@@ -37,9 +37,9 @@ public class UsuarioService {
         return usuarioRepository.findByFirebaseUid(uidFirebase);
     }
 
-    // =======================
+
     // CREAR / SINCRONIZAR USUARIO LOCAL
-    // =======================
+
 
     public Usuario crearOActualizarDesdeFirebase(String uidFirebase, String nombre, String email, String fotoPerfil) {
         Optional<Usuario> usuarioOpt = usuarioRepository.findByFirebaseUid(uidFirebase);
@@ -70,9 +70,9 @@ public class UsuarioService {
         return usuarioRepository.save(usuario);
     }
 
-    // =======================
+
     // ADMIN: CRUD LOCAL
-    // =======================
+
 
     public Usuario save(Usuario usuario) {
         return usuarioRepository.save(usuario);
@@ -96,9 +96,9 @@ public class UsuarioService {
         return usuarioRepository.save(usuario);
     }
 
-    // =======================
+
     // VALIDACIÓN DE ADMIN
-    // =======================
+
 
     public void validarAdmin(HttpServletRequest request) {
         String uid = (String) request.getAttribute("uidFirebase");

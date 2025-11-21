@@ -1,11 +1,14 @@
 package com.pausaparakdramas.PausaParaKdramas.Security;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.http.HttpMethod;
+
 
 @Configuration
 public class SecurityConfig {
@@ -20,10 +23,19 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/auth/**", "/public/**", "/index.html").permitAll()
+
+                        // 🔥 Permitir explícitamente DELETE en kdramas
+                        .requestMatchers(HttpMethod.DELETE, "/api/kdramas/**").permitAll()
+
+                        // 🔥 Permitir todos los demás métodos de kdramas
+                        .requestMatchers("/api/kdramas/**").permitAll()
+
                         .requestMatchers("/usuarios/me", "/usuarios/sync", "/usuarios/**").authenticated()
-                        .requestMatchers("/api/upload").authenticated() // <--- agregar esto
+                        .requestMatchers("/api/upload").authenticated()
+
                         .anyRequest().authenticated()
                 )
+
                 .addFilterBefore(firebaseTokenFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();

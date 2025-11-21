@@ -15,6 +15,15 @@ import java.util.Collections;
 @Component
 public class FirebaseTokenFilter extends OncePerRequestFilter {
 
+    //  Aquí definimos qué rutas NO deben pasar por el filtro
+    @Override
+    protected boolean shouldNotFilter(HttpServletRequest request) {
+        String path = request.getServletPath();
+        System.out.println(" shouldNotFilter → " + path);
+
+        return path.startsWith("/api/kdramas"); // ← IGNORA TODAS LAS RUTAS KDRAMA
+    }
+
     @Override
     protected void doFilterInternal(HttpServletRequest req, HttpServletResponse res, FilterChain chain)
             throws IOException, jakarta.servlet.ServletException {
