@@ -4,9 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gestión de Contenido</title>
+
     <link rel="stylesheet" href="./css/general.css" />
     <link rel="stylesheet" href="./css/admin.css" />
   </head>
+
   <body>
     <header>
       <p class="posNombreWeb">Pausa Para K-Dramas - Admin</p>
@@ -22,49 +24,71 @@
     <main>
       <h1>Gestión de Contenido</h1>
 
-      <form id="formContenido" novalidate>
+      <!-- BUSCADOR -->
+      <div class="search-section">
+        <h2>Buscar K-Drama en TMDB</h2>
+
         <div class="campo">
-          <label for="titulo">Título</label>
+          <label for="tituloBuscar">Título del K-Drama</label>
           <input
             type="text"
-            id="titulo"
-            name="titulo"
-            placeholder="Título del K-Drama"
-            required
+            id="tituloBuscar"
+            placeholder="Ej: Goblin, Crash Landing on You..."
           />
-          <span class="error" id="error-titulo"></span>
+          <button id="btnBuscar">Buscar y Guardar</button>
         </div>
 
-        <div class="campo">
-          <label for="descripcion">Descripción</label>
-          <textarea
-            id="descripcion"
-            name="descripcion"
-            placeholder="Descripción o reseña..."
-            rows="5"
-            required
-          ></textarea>
-          <span class="error" id="error-descripcion"></span>
-        </div>
+        <p id="mensaje"></p>
+      </div>
 
-        <button type="submit">Guardar</button>
-      </form>
+      <!--  TABLA DE KDRAMAS -->
+      <section class="tabla-contenido">
+        <h2>K-Dramas Guardados</h2>
 
-      <section class="lista-contenido">
-        <h2>Publicaciones Existentes</h2>
-        <article class="card">
-          <h3>Crash Landing On You</h3>
-          <p>Una historia de amor entre Corea del Norte y del Sur...</p>
-          <div class="acciones">
-            <button class="editar">Editar</button>
-            <button class="eliminar">Eliminar</button>
-          </div>
-        </article>
+        <table class="tabla-admin" id="tablaKdramas">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Título</th>
+              <th>Año</th>
+              <th>Género</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+
+          <tbody id="listaKdramas">
+            <!-- Filas generadas por JS -->
+          </tbody>
+        </table>
       </section>
     </main>
+
+    <!-- MODAL DETALLES -->
+    <div id="modalDetalles" class="modal-detalles">
+      <div class="modal-contenido">
+        <span id="cerrarModal" class="modal-cerrar">&times;</span>
+
+        <div class="modal-body">
+          <div class="modal-img-wrapper">
+            <img id="modalImagen" src="" alt="Póster KDrama" />
+          </div>
+
+          <div class="modal-info">
+            <h2 id="modalTitulo"></h2>
+            <p><strong>Año:</strong> <span id="modalAnio"></span></p>
+            <p><strong>Género:</strong> <span id="modalGenero"></span></p>
+
+            <h3>Sinopsis</h3>
+            <p id="modalSinopsis"></p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <footer>
       <p>&copy; 2025 Pausa Para K-Dramas. Todos los derechos reservados.</p>
     </footer>
+
+    <script src="js/gestion_contenido.js"></script>
   </body>
 </html>
