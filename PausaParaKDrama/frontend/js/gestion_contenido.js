@@ -13,12 +13,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalGenero = document.getElementById("modalGenero");
   const modalSinopsis = document.getElementById("modalSinopsis");
 
-  // 🔥 Cargar K-Dramas al iniciar
+  //Cargar K-Dramas al iniciar
   cargarKdramas();
 
-  // -----------------------------------------------------
-  // 🔥 Buscar + Guardar K-Drama
-  // -----------------------------------------------------
+  
+  // Buscar + Guardar K-Drama
+  
   btnBuscar.addEventListener("click", async () => {
     const titulo = inputTitulo.value.trim();
 
@@ -51,17 +51,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // -----------------------------------------------------
-  // 🔥 Mostrar mensajes
-  // -----------------------------------------------------
+    // Mostrar mensajes
+  
   function mostrarMensaje(texto, color) {
     mensaje.textContent = texto;
     mensaje.style.color = color;
   }
 
-  // -----------------------------------------------------
-  // 🔵 Cargar K-Dramas almacenados
-  // -----------------------------------------------------
+  
+  //  Cargar K-Dramas almacenados
+  
   async function cargarKdramas() {
     try {
       const response = await fetch("http://localhost:8080/api/kdramas/listar");
@@ -77,9 +76,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // -----------------------------------------------------
-  // 🔵 Dibujar fila en tabla
-  // -----------------------------------------------------
+  
+  // Dibujar fila en tabla
+  
   function agregarFila(k) {
     const tr = document.createElement("tr");
 
@@ -104,9 +103,8 @@ document.addEventListener("DOMContentLoaded", () => {
     listaKdramas.appendChild(tr);
   }
 
-  // -----------------------------------------------------
-  // 📌 Ver detalles en modal
-  // -----------------------------------------------------
+  // Ver detalles en modal
+  
   function verDetalles(k) {
     modalTitulo.textContent = k.tituloKdrama;
     modalAnio.textContent = k.anio ?? "Sin año";
@@ -124,9 +122,9 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.style.display = "flex";
   }
 
-  // -----------------------------------------------------
-  // 📌 Cerrar modal
-  // -----------------------------------------------------
+  
+  // Cerrar modal
+ 
   cerrarModal.addEventListener("click", () => {
     modal.style.display = "none";
   });
@@ -135,16 +133,16 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target === modal) modal.style.display = "none";
   });
 
-  // -----------------------------------------------------
-  // 📌 Editar (placeholder)
-  // -----------------------------------------------------
+  
+  // Editar (placeholder)
+  
   function editarKdrama(k) {
     alert("Aquí podrás editar: " + k.tituloKdrama);
   }
 
-  // -----------------------------------------------------
-  // 📌 Eliminar K-Drama
-  // -----------------------------------------------------
+  
+  // Eliminar K-Drama
+  
   async function eliminarKdrama(id) {
     if (!confirm("¿Eliminar este K-Drama?")) return;
 
